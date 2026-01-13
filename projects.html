@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    /* LEFT SIDEBAR */
+    .sidebar {
+      width: 5em;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 1em;
+      border-right: 1px solid #ddd;
+    }
+
+    .sidebar a {
+      color: #111;
+      text-decoration: none;
+      margin: 1em 0;
+      font-size: 0.9em;
+      text-align: center;
+      width: 100%;
+    }
+
+    .sidebar a:hover {
+      background-color: #f2f2f2;
+    }
+
+    /* RIGHT CONTENT */
+    .content {
+      flex: 1;
+      padding: 2em;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+
+    /* PROJECT NAV MODULE */
+    .project-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1em;
+      margin-bottom: 3em;
+    }
+
+    .project-card {
+      padding: 1.2em;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+      color: #111;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* PROJECT SECTIONS */
+    .project-section {
+      margin-bottom: 4em;
+    }
+
+    .project-section h2 {
+      margin-bottom: 1em;
+    }
+
+    .project-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1em;
+    }
+
+    .project-images img {
+      width: 100%;
+      border-radius: 6px;
+      transition: transform 0.3s;
+    }
+
+    .project-images img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LEFT NAVIGATION -->
+  <nav class="sidebar">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="Resume.html">Resume</a>
+    <a href="contact.html">Contact</a>
+
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <!-- PROJECT NAVIGATION MODULE -->
+    <section class="project-nav">
+      <a href="#project1" class="project-card">Project One</a>
+      <a href="#project2" class="project-card">Project Two</a>
+      <a href="#project3" class="project-card">Project Three</a>
+    </section>
+
+    <!-- PROJECT 1 -->
+    <section id="project1" class="project-section">
+      <h2>Project One</h2>
+      <div class="project-images">
+        <img src="page1.png" alt="Project One Image">
+        <img src="page2.png" alt="Project One Image">
+      </div>
+    </section>
+
+    <!-- PROJECT 2 -->
+    <section id="project2" class="project-section">
+      <h2>Project Two</h2>
+      <div class="project-images">
+        <img src="test.png" alt="Project Two Image">
+        <img src="test.png" alt="Project Two Image">
+      </div>
+    </section>
+
+    <!-- PROJECT 3 -->
+    <section id="project3" class="project-section">
+      <h2>Project Three</h2>
+      <div class="project-images">
+        <img src="test.png" alt="Project Three Image">
+        <img src="test2.png" alt="Project Three Image">
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
+<img src="test.png" style="transform: scale(.4)">

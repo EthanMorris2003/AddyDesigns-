@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | My Portfolio</title>
+
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+    }
+
+    /* LEFT SIDEBAR */
+    .sidebar {
+      width: 5em;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 1em;
+      border-right: 1px solid #ddd;
+    }
+
+    .sidebar a {
+      color: #111;
+      text-decoration: none;
+      margin: 1em 0;
+      font-size: 0.9em;
+      text-align: center;
+      width: 100%;
+    }
+
+    .sidebar a:hover {
+      background-color: #f2f2f2;
+    }
+
+    /* RIGHT CONTENT */
+    .content {
+      flex: 1;
+      padding: 2em;
+      overflow-y: auto;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    /* CONTACT SECTION */
+    #contact {
+      background: white;
+      padding: 2em;
+      max-width: 500px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    #contact h2 {
+      margin-top: 0;
+      margin-bottom: 1em;
+      text-align: center;
+    }
+
+    /* FORM LAYOUT */
+    #contact form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #contact label {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1em;
+      font-size: 0.9em;
+    }
+
+    #contact input,
+    #contact textarea {
+      padding: 0.6em;
+      margin-top: 0.3em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: inherit;
+    }
+
+    #contact input:focus,
+    #contact textarea:focus {
+      outline: none;
+      border-color: #000000;
+    }
+
+    #contact textarea {
+      resize: vertical;
+    }
+
+    #contact button {
+      margin-top: 1em;
+      padding: 0.8em;
+      background-color: #000000;
+      color: rgb(166, 166, 166);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    #contact button:hover {
+      background-color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LEFT NAVIGATION -->
+  <nav class="sidebar">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="Resume.html">Resume</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <section id="contact">
+      <h2>Contact Me</h2>
+
+      <form action="https://formspree.io/f/mnjjqbar" method="POST">
+
+        <label>
+          First Name
+          <input type="text" name="first_name" required>
+        </label>
+
+        <label>
+          Last Name
+          <input type="text" name="last_name" required>
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" required>
+        </label>
+
+        <label>
+          Phone Number
+          <input type="tel" name="phone">
+        </label>
+
+        <label>
+          Message
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+
+        <button type="submit">Send Message</button>
+
+      </form>
+    </section>
+  </main>
+
+</body>
+</html>

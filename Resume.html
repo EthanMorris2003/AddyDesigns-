@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Portfolio</title>
+  <title>Resume | My Portfolio</title>
 
   <style>
     body {
       margin: 0;
       display: flex;
       height: 100vh;
-      font-family: Garamond;
+      font-family: Arial, sans-serif;
     }
 
     /* LEFT SIDEBAR */
     .sidebar {
       width: 5em;
-      background-color: #69A46A;
+      background-color: white;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -33,7 +33,7 @@
     }
 
     .sidebar a:hover {
-      background-color: #DDEDDD;
+      background-color: #f2f2f2;
     }
 
     /* RIGHT CONTENT */
@@ -43,6 +43,19 @@
       overflow-y: auto;
     }
 
+    /* RESUME IMAGE */
+    .resume-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .resume-container img {
+      max-width: 90%;
+      height: auto;
+      display: block;
+      max-height: 85%;
+    }
   </style>
 </head>
 
@@ -55,12 +68,14 @@
     <a href="Resume.html">Resume</a>
     <a href="contact.html">Contact</a>
 
-</nav>
+  </nav>
 
   <!-- MAIN CONTENT -->
   <main class="content">
-    <img src="test.png" style="transform: scale(.4)">
-</main>
+    <div class="resume-container">
+      <img src="resume.jpeg" alt="Resume">
+    </div>
+  </main>
 
 </body>
 </html>
