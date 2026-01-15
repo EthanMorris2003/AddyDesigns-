@@ -5,43 +5,64 @@
   <title>Resume | My Portfolio</title>
 
   <style>
-    body {
-      margin: 0;
-      display: flex;
-      height: 100vh;
-      font-family: Garamond;
-    }
+body {
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  font-family: Garamond;
+  background-color: #f5f7f5;
+}
 
-    /* LEFT SIDEBAR */
-    .sidebar {
-      width: 5em;
-      background-color: #69A46A;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 1em;
-      border-right: 1px solid #ddd;
-    }
+/* SIDEBAR */
+/* SIDEBAR */
+.sidebar {
+  width: 5em;
+  background: linear-gradient(to bottom, #69A46A, #4f7a4f); /* gradient background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1.5em;
+  
+  /* border and shadow */
+  border-right: 2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  
+  border-top-right-radius: 10px;    /* optional rounding */
+  border-bottom-right-radius: 10px; /* optional rounding */
+}
 
-    .sidebar a {
-      color: #111;
-      text-decoration: none;
-      margin: 1em 0;
-      font-size: 0.9em;
-      text-align: center;
-      width: 100%;
-    }
 
-    .sidebar a:hover {
-      background-color: #DDEDDD;
-    }
+/* SIDEBAR LINKS */
+.sidebar a {
+  color: #000000;                 /* lighter text for contrast */
+  text-decoration: none;
+  margin: 0.8em 0;                /* slightly less space between links */
+  font-size: 0.95em;              /* a bit larger */
+  width: 100%;
+  text-align: center;
+  padding: 0.5em 0;
+  border-radius: 8px;             /* rounded edges for links */
+  transition: all 0.3s ease;      /* smooth hover effect */
+}
 
-    /* RIGHT CONTENT */
-    .content {
-      flex: 1;
-      padding: 2em;
-      overflow-y: auto;
-    }
+.sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* subtle highlight */
+  color: #ffffff;                              /* text changes on hover */
+  transform: translateX(3px);                  /* small slide effect */
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 2em;               /* slightly reduced padding for cleaner look */
+  overflow-y: auto;
+
+  /* optional border + shadow for separation */
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  background-color: #ffffff;  /* pops against the sidebar */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
     /* RESUME IMAGE */
     .resume-container {
       display: flex;

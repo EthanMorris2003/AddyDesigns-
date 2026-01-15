@@ -5,45 +5,59 @@
   <title>Contact | My Portfolio</title>
 
   <style>
-    body {
-      margin: 0;
-      display: flex;
-      height: 100vh;
-      font-family: Garamond;
-    }
+body {
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  font-family: Garamond;
+  background-color: #f5f7f5;
+}
 
-    /* LEFT SIDEBAR */
-    .sidebar {
-      width: 5em;
-      background-color: #69A46A;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 1em;
-      border-right: 1px solid #ddd;
-    }
+/* SIDEBAR */
+/* SIDEBAR */
+.sidebar {
+  width: 5em;
+  background: linear-gradient(to bottom, #69A46A, #4f7a4f); /* gradient background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1.5em;
+  
+  /* border and shadow */
+  border-right: 2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  
+  border-top-right-radius: 10px;    /* optional rounding */
+  border-bottom-right-radius: 10px; /* optional rounding */
+}
 
-    .sidebar a {
-      color: #111;
-      text-decoration: none;
-      margin: 1em 0;
-      font-size: 0.9em;
-      text-align: center;
-      width: 100%;
-    }
 
-    .sidebar a:hover {
-      background-color: #DDEDDD;
-    }
+/* SIDEBAR LINKS */
+.sidebar a {
+  color: #000000;                 /* lighter text for contrast */
+  text-decoration: none;
+  margin: 0.8em 0;                /* slightly less space between links */
+  font-size: 0.95em;              /* a bit larger */
+  width: 100%;
+  text-align: center;
+  padding: 0.5em 0;
+  border-radius: 8px;             /* rounded edges for links */
+  transition: all 0.3s ease;      /* smooth hover effect */
+}
 
-    
+.sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* subtle highlight */
+  color: #ffffff;                              /* text changes on hover */
+  transform: translateX(3px);                  /* small slide effect */
+}
+
 /* RIGHT CONTENT */
 .content {
   flex: 1;
   padding: 2em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex;              /* enable flexbox */
+  justify-content: center;    /* horizontal centering */
+  align-items: center;        /* vertical centering */
 }
 
 /* CONTACT CARD */
@@ -54,69 +68,79 @@
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  border-top: 6px solid #69A46A; /* visual link to sidebar */
+  border-top: 6px solid #69A46A;
 }
 
-/* HEADER */
-#contact h2 {
-  margin-top: 0;
-  margin-bottom: 1.5em;
-  text-align: center;
-  font-weight: normal;
-  letter-spacing: 0.05em;
-  color: #2e3d2e;
-}
 
-/* FORM */
-#contact form {
-  display: flex;
-  flex-direction: column;
-}
+    #contact h2 {
+      margin-top: 0;
+      margin-bottom: 1.5em;
+      text-align: center;
+      font-weight: normal;
+      letter-spacing: 0.05em;
+      color: #2e3d2e;
+    }
 
-#contact label {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.2em;
-  font-size: 0.85em;
-  color: #2e3d2e;
-}
+    /* FORM */
+    #contact form {
+      display: flex;
+      flex-direction: column;
+    }
 
-#contact input,
-#contact textarea {
-  padding: 0.6em;
-  margin-top: 0.4em;
-  border: 1px solid #cdd8cd;
-  border-radius: 5px;
-  font-size: 0.9em;
-  font-family: inherit;
-  background-color: #f9fbf9;
-}
+    #contact label {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1em;
+      font-size: 0.9em;
+      color: #2e3d2e;
+    }
 
-#contact input:focus,
-#contact textarea:focus {
-  outline: none;
-  border-color: #69A46A;
-  background-color: #ffffff;
-}
+    #contact input,
+    #contact textarea {
+      padding: 0.6em;
+      margin-top: 0.3em;
+      border: 1px solid #cdd8cd;
+      border-radius: 5px;
+      font-size: 0.9em;
+      font-family: inherit;
+      background-color: #f9fbf9;
+      transition: all 0.2s ease;
+    }
 
-/* BUTTON */
-#contact button {
-  margin-top: 1em;
-  padding: 0.75em;
-  background-color: #69A46A;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.9em;
-  letter-spacing: 0.05em;
-  transition: background 0.2s ease, transform 0.1s ease;
-}
+    #contact input:focus,
+    #contact textarea:focus {
+      outline: none;
+      border-color: #69A46A;
+      background-color: #ffffff;
+    }
 
-#contact button:hover {
-  background-color: #5b915c;
-  transform: translateY(-1px);
-}
+    /* BUTTON */
+    #contact button {
+      margin-top: 1em;
+      padding: 0.75em;
+      background-color: #69A46A;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.95em;
+      letter-spacing: 0.05em;
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+
+    #contact button:hover {
+      background-color: #5b915c;
+      transform: translateY(-1px);
+    }
+
+    /* Responsive tweaks */
+    @media (max-height: 600px) {
+      .content {
+        align-items: flex-start;
+        padding-top: 2em;
+        padding-bottom: 2em;
+      }
+    }
 
   </style>
 </head>

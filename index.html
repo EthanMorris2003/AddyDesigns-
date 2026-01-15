@@ -2,47 +2,170 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Portfolio</title>
+  <title>Home | My Portfolio</title>
 
   <style>
-    body {
-      margin: 0;
-      display: flex;
-      height: 100vh;
-      font-family: Garamond;
-    }
+body {
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  font-family: Garamond;
+  background-color: #f5f7f5;
+}
 
-    /* LEFT SIDEBAR */
-    .sidebar {
-      width: 5em;
-      background-color: #69A46A;
+/* SIDEBAR */
+/* SIDEBAR */
+.sidebar {
+  width: 5em;
+  background: linear-gradient(to bottom, #69A46A, #4f7a4f); /* gradient background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1.5em;
+  
+  /* border and shadow */
+  border-right: 2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  
+  border-top-right-radius: 10px;    /* optional rounding */
+  border-bottom-right-radius: 10px; /* optional rounding */
+}
+
+
+/* SIDEBAR LINKS */
+.sidebar a {
+  color: #000000;                 /* lighter text for contrast */
+  text-decoration: none;
+  margin: 0.8em 0;                /* slightly less space between links */
+  font-size: 0.95em;              /* a bit larger */
+  width: 100%;
+  text-align: center;
+  padding: 0.5em 0;
+  border-radius: 8px;             /* rounded edges for links */
+  transition: all 0.3s ease;      /* smooth hover effect */
+}
+
+.sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* subtle highlight */
+  color: #ffffff;                              /* text changes on hover */
+  transform: translateX(3px);                  /* small slide effect */
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 2em;               /* slightly reduced padding for cleaner look */
+  overflow-y: auto;
+
+  /* optional border + shadow for separation */
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  background-color: #ffffff;  /* pops against the sidebar */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+
+    /* HERO SECTION */
+    .hero {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding-top: 1em;
-      border-right: 1px solid #ddd;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: -1em;
     }
 
-    .sidebar a {
-      color: #111;
+    .hero h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.3em;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 0.8em;
+    }
+
+    .hero .btn {
+      background-color: #69A46A;
+      color: white;
+      padding: 0.6em 1.2em;
+      border-radius: 5px;
       text-decoration: none;
-      margin: 1em 0;
-      font-size: 0.9em;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .hero .btn:hover {
+      background-color: #4f7a50;
+    }
+
+    /* FEATURED PROJECTS */
+    .featured-projects {
+      margin-top: 1.5em;
+    }
+
+    .featured-projects h2 {
+      margin-bottom: 0.5em;
+    }
+
+    .projects-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1em;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       text-align: center;
+      transition: transform 0.2s ease;
+      height: 220px;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .project-card img {
       width: 100%;
+      height: 110px;
+      object-fit: cover;
     }
 
-    .sidebar a:hover {
-      background-color: #DDEDDD;
+    .project-card p {
+      margin: 0.4em 0 0.8em;
+      font-weight: bold;
+      font-size: 0.9em;
     }
 
-    /* RIGHT CONTENT */
-    .content {
-      flex: 1;
-      padding: 2em;
-      overflow-y: auto;
+    /* ABOUT ME */
+    .about {
+      margin-top: 2em;
+      max-width: 600px;
     }
 
+    .about h2 {
+      margin-bottom: 0.4em;
+    }
+
+    .about p {
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-bottom: 1em;
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    footer a {
+      color: #69A46A;
+      text-decoration: none;
+      margin-left: 1em;
+    }
   </style>
 </head>
 
@@ -54,12 +177,54 @@
     <a href="projects.html">Projects</a>
     <a href="Resume.html">Resume</a>
     <a href="contact.html">Contact</a>
-
-</nav>
+  </nav>
 
   <!-- MAIN CONTENT -->
   <main class="content">
-</main>
+    
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <h1>Hi, I'm Addelynn Prushing</h1>
+      <a href="projects.html" class="btn">View My Work</a>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section class="featured-projects">
+      <h2>Featured Projects</h2>
+      <div class="projects-preview">
+        <div class="project-card" onclick="location.href='projects.html#proj1'">
+          <img src="Images/proj1page3.png" alt="Project One">
+          <p>Project One</p>
+        </div>
+        <div class="project-card" onclick="location.href='projects.html#proj2'">
+          <img src="Images/proj2page1.png" alt="Project Two">
+          <p>Project Two</p>
+        </div>
+        <div class="project-card" onclick="location.href='projects.html#proj3'">
+          <img src="Images/proj3page1.png" alt="Project Three">
+          <p>Project Three</p>
+        </div>
+        <div class="project-card" onclick="location.href='projects.html#proj4'">
+          <img src="Images/proj4page1.png" alt="Project Four">
+          <p>Project Four</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT ME -->
+    <section class="about">
+      <h2>About Me</h2>
+      <p>Hello! I'm Addy ................</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2026 Addy Prushing</p>
+      <a href="Resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </footer>
+
+  </main>
 
 </body>
 </html>
