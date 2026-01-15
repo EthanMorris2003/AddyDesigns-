@@ -1,151 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Portfolio</title>
+<meta charset="UTF-8">
+<title>Projects | My Portfolio</title>
 
-  <style>
-    body {
-      margin: 0;
-      display: flex;
-      height: 100vh;
-      font-family: Arial, sans-serif;
-    }
+<style>
+body {
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  font-family: Garamond;
+  background-color: #f5f7f5;
+}
 
-    /* LEFT SIDEBAR */
-    .sidebar {
-      width: 5em;
-      background-color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 1em;
-      border-right: 1px solid #ddd;
-    }
+/* SIDEBAR */
+.sidebar {
+  width: 5em;
+  background-color: #69A46A;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1.5em;
+  border-right: 1px solid rgba(0,0,0,0.1);
+}
 
-    .sidebar a {
-      color: #111;
-      text-decoration: none;
-      margin: 1em 0;
-      font-size: 0.9em;
-      text-align: center;
-      width: 100%;
-    }
+.sidebar a {
+  color: #1f2d1f;
+  text-decoration: none;
+  margin: 1em 0;
+  font-size: 0.85em;
+  width: 100%;
+  text-align: center;
+}
 
-    .sidebar a:hover {
-      background-color: #f2f2f2;
-    }
+.sidebar a:hover {
+  background-color: #DDEDDD;
+}
 
-    /* RIGHT CONTENT */
-    .content {
-      flex: 1;
-      padding: 2em;
-      overflow-y: auto;
-      scroll-behavior: smooth;
-    }
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 3em;
+  overflow-y: auto;
+}
 
-    /* PROJECT NAV MODULE */
-    .project-nav {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1em;
-      margin-bottom: 3em;
-    }
+/* PROJECT GRID */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2em;
+}
 
-    .project-card {
-      padding: 1.2em;
-      background: #f9f9f9;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      text-align: center;
-      cursor: pointer;
-      text-decoration: none;
-      color: #111;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+/* PROJECT CARD */
+.project-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  height: 300px;
 
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+}
 
-    /* PROJECT SECTIONS */
-    .project-section {
-      margin-bottom: 4em;
-    }
+.project-card:hover {
+  transform: translateY(-4px);
+}
 
-    .project-section h2 {
-      margin-bottom: 1em;
-    }
+.project-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
 
-    .project-images {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1em;
-    }
+.project-card h3 {
+  margin: 0;
+  padding: 1em;
+  font-size: 1em;
+  text-align: center;
+}
 
-    .project-images img {
-      width: 100%;
-      border-radius: 6px;
-      transition: transform 0.3s;
-    }
+/* FULLSCREEN VIEWER */
+.viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
-    .project-images img:hover {
-      transform: scale(1.05);
-    }
-  </style>
+.viewer img {
+  max-width: 85%;
+  max-height: 85%;
+}
+
+/* ARROWS */
+.arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 3em;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  padding: 0 0.3em;
+}
+
+.arrow.left { left: 1em; }
+.arrow.right { right: 1em; }
+
+.arrow:hover {
+  color: #69A46A;
+}
+
+/* CLOSE */
+.viewer-close {
+  position: absolute;
+  top: 1em;
+  right: 1.5em;
+  font-size: 2em;
+  color: white;
+  cursor: pointer;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- LEFT NAVIGATION -->
-  <nav class="sidebar">
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="Resume.html">Resume</a>
-    <a href="contact.html">Contact</a>
+<nav class="sidebar">
+  <a href="index.html">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="Resume.html">Resume</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
-  </nav>
+<main class="content">
+  <div class="projects-grid">
 
-  <!-- MAIN CONTENT -->
-  <main class="content">
+    <!-- PROJECT CARD -->
+    <div class="project-card" onclick="openProject(0)">
+      <img src="Images/page1.png">
+      <h3>Project One</h3>
+    </div>
 
-    <!-- PROJECT NAVIGATION MODULE -->
-    <section class="project-nav">
-      <a href="#project1" class="project-card">Project One</a>
-      <a href="#project2" class="project-card">Project Two</a>
-      <a href="#project3" class="project-card">Project Three</a>
-    </section>
+    <div class="project-card" onclick="openProject(1)">
+      <img src="Images/proj2page1.png">
+      <h3>Project Two</h3>
+    </div>
 
-    <!-- PROJECT 1 -->
-    <section id="project1" class="project-section">
-      <h2>Project One</h2>
-      <div class="project-images">
-        <img src="page1.png" alt="Project One Image">
-        <img src="page2.png" alt="Project One Image">
-      </div>
-    </section>
+    <div class="project-card" onclick="openProject(2)">
+      <img src="Images/proj3page1.png">
+      <h3>Project Three</h3>
+    </div>
 
-    <!-- PROJECT 2 -->
-    <section id="project2" class="project-section">
-      <h2>Project Two</h2>
-      <div class="project-images">
-        <img src="test.png" alt="Project Two Image">
-        <img src="test.png" alt="Project Two Image">
-      </div>
-    </section>
+    <div class="project-card" onclick="openProject(3)">
+      <img src="Images/proj4page1.png">
+      <h3>Project Four</h3>
+    </div>
 
-    <!-- PROJECT 3 -->
-    <section id="project3" class="project-section">
-      <h2>Project Three</h2>
-      <div class="project-images">
-        <img src="test.png" alt="Project Three Image">
-        <img src="test2.png" alt="Project Three Image">
-      </div>
-    </section>
+  </div>
+</main>
 
-  </main>
+<div class="viewer" id="viewer">
+  <span class="viewer-close" onclick="closeViewer()">✕</span>
+  <span class="arrow left" onclick="prevImage()">❮</span>
+  <img id="viewerImage">
+  <span class="arrow right" onclick="nextImage()">❯</span>
+</div>
+
+<script>
+const projects = [
+  [
+    "Images/proj1page1.png",
+    "Images/proj1page2.png",
+    "Images/proj1page3.png",
+    "Images/proj1page4.png",
+    "Images/proj1page5.png",
+    "Images/proj1page6.png",
+    "Images/proj1page7.png",
+    "Images/proj1page8.png"
+  ],
+  [
+  "Images/proj2page1.png",
+  "Images/proj2page2.png",
+  "Images/proj2page3.png",
+  "Images/proj2page4.png",
+  "Images/proj2page5.png",
+  "Images/proj2page6.png"
+  ],
+
+  [
+  "Images/proj3page1.png",
+  "Images/proj3page2.png",
+  "Images/proj3page3.png"
+  ],
+  [
+  "Images/proj4page1.png",
+  "Images/proj3page2.png",
+  "Images/proj3page3.png",
+  "Images/proj3page4.png"
+  ]
+  
+];
+
+let currentProject = 0;
+let currentImage = 0;
+
+function openProject(index) {
+  currentProject = index;
+  currentImage = 0;
+  document.getElementById("viewer").style.display = "flex";
+  updateImage();
+}
+
+function closeViewer() {
+  document.getElementById("viewer").style.display = "none";
+}
+
+function updateImage() {
+  document.getElementById("viewerImage").src =
+    projects[currentProject][currentImage];
+}
+
+function nextImage() {
+  currentImage =
+    (currentImage + 1) % projects[currentProject].length;
+  updateImage();
+}
+
+function prevImage() {
+  currentImage =
+    (currentImage - 1 + projects[currentProject].length) %
+    projects[currentProject].length;
+  updateImage();
+}
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeViewer();
+});
+</script>
 
 </body>
 </html>
-<img src="test.png" style="transform: scale(.4)">
